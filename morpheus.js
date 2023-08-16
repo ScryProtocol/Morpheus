@@ -46,6 +46,7 @@ if (pkFlag != null) {
 const provider = (function() {
   let infura_net = process.env.INFURA_NETWORK;
   if (infura_net) {
+    console.log("Using Infura network: " + infura_net);
     return new ethers.providers.InfuraProvider(infura_net, rpc);
   } else {
     return new ethers.providers.JsonRpcProvider(rpc);
