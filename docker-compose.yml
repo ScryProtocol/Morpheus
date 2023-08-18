@@ -4,3 +4,4 @@ services:
     image: scryprotocol/morpheus:latest
     volumes:
       - ./env_vars:/appdir/.env # make sure to create the env_vars file to match .env
+    restart: always
