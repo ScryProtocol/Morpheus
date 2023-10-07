@@ -539,4 +539,5 @@ async function node() {
     }
   }
 
-  main()
+}
+main()
