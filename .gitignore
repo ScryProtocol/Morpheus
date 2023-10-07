@@ -1,4 +1,8 @@
 
+# nodejs files
+yarn.lock
 node_modules/
 
+# env secrets and variables
 env_vars
+.env
