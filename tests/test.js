@@ -63,10 +63,6 @@ const oofContract =
     : undefined;
 
 async function sub() {
-  const tx2 = await oofContract.supportFeeds([100],  ["10000000000000000"], {
-    value: "10000000000000000",
-  });
-  await tx2.wait();
   const tx = await oofContract.requestFeeds(end, p, d, b, {
     value: "10000000000000000",
   });
