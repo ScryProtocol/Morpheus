@@ -63,6 +63,10 @@ const oofContract =
     : undefined;
 
 async function sub() {
+  const tx2 = await oofContract.supportFeeds([100],  ["10000000000000000"], {
+    value: "10000000000000000",
+  });
+  await tx2.wait();
   const tx = await oofContract.requestFeeds(end, p, d, b, {
     value: "10000000000000000",
   });
@@ -72,7 +76,7 @@ async function sub() {
   console.log("Transaction hash: " + tx.hash);
   await tx.wait();
   console.log(`Transaction confirmed at ${Date.now()}`);
-  for (let n = 0; n === 0; ) {
+  for (let n =  '0'; n === '0'; ) {
     await sleep(10000);
     let t = await oofContract.getFeeds([
       Number(await oofContract.getFeedLength()) - 1,

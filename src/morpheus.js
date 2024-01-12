@@ -39,6 +39,9 @@ if (aFlag != null) {
 }
 if (pkFlag != null) {
   pk = pkFlag;
+}if (pk == '') {
+ console.log('No PK')
+return
 }
 const provider = new ethers.providers.JsonRpcProvider(rpc);
 
@@ -662,10 +665,13 @@ async function node() {
                 } else {
                   console.log(
                     "Batch transaction not confirmed resubmitting with higher fee.",
-                  );
-                  gasPrice = gasPrice.mul(102).div(100).gt(gasPrice)
-                    ? gasPrice.mul(102).div(100)
-                    : gasPrice.add(1);
+                  ); console.log("Gas fee: ",Number(gasPrice));
+
+                  let gasPr = await provider.getGasPrice()
+                  gasPrice = gasPr.gt(gasPrice)
+                    ? gasPr
+                    : gasPrice.mul(102).div(100);
+                    console.log("resubmitting with fee: ",Number(gasPrice));
                   timeSinceSubmission = 0;
                   break;
                 }
