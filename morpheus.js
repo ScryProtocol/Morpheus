@@ -491,6 +491,9 @@ async function node() {
       if (valu.gt(BigNumber.from(('0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')))) {
         val = value
         value = 88888888
+      } if (valu.lt(0)) {
+        val = 'negative'
+        value = uint(valu)
       }
     } catch {
       val = value
