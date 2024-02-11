@@ -493,7 +493,7 @@ async function node() {
         value = 88888888
       } if (valu.lt(0)) {
         val = 'negative'
-        value = uint(valu)
+        value = (valu).abs().toString()
       }
     } catch {
       val = value
